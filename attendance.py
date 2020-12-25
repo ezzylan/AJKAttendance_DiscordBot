@@ -1,7 +1,8 @@
 # bot.py
 import os
-
+import datetime
 import discord
+from discord.utils import get
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -11,17 +12,45 @@ GUILD = os.getenv('DISCORD_GUILD')
 client = discord.Client()
 
 
+def att_link(day, hour):
+    link = ""
+    # lecture probstats
+    if day == 1 and hour == 9:
+        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=335878\nAttendance Lecture ProbStats\nPassword minta kat Dehe"
+    # lecture tcs
+    elif day == 1 and hour == 15:
+        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=152862\nAttendance Lecture TCS"
+    # lecture softmod
+    elif day == 2 and hour == 9:
+        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=143231\nAttendance Lecture SoftMod"
+    # lecture db
+    elif day == 2 and hour == 13:
+        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=332871\nAttendance Lecture Database (Dr Khalit)"
+    # lecture project management
+    elif day == 3 and hour == 9:
+        link = "Ketua group tutorial korang akan ambik attendance masing2. Jangan lupa hadir kelas ya!"
+    # tutorial probstats
+    elif day == 3 and hour == 14:
+        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=337476\nAttendance Tutorial ProbStats\nPassword minta kat Dehe"
+    # tutorial softmod
+    elif day == 4 and hour == 9:
+        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=143231\nAttendance Tutorial SoftMod"
+    # tutorial db
+    elif day == 4 and hour == 15:
+        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=332912\nAttendance Tutorial Database (Dr Khalit)"
+    return link
+
+
 @client.event
 async def on_ready():
-    guild = discord.utils.get(client.guilds, name=GUILD)
-    
+    for guild in client.guilds:
+        if guild.name == GUILD:
+            channel = get(guild.text_channels, name='acah-study📚')
+            now = datetime.now()
+            day = datetime(now.year, now.month, now.day).isoweekday()
+            hour = now.hour
+            link = att_link(day, hour)
+            message = await channel.send(link)
     await client.close()
 
-
 client.run(TOKEN)
-
-
-def get_time():
-    t = time.localtime()
-    current_time = time.strftime("%H:%M:%S", t)
-    print(current_time)
