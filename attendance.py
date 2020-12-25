@@ -51,6 +51,5 @@ async def on_ready():
             hour = now.hour
             link = att_link(day, hour)
             message = await channel.send(link)
-    await client.close()
 
 client.run(TOKEN)

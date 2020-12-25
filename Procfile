@@ -1,1 +1,1 @@
-worker: python AJKAttendance/attendance.py
+worker: python attendance.py
