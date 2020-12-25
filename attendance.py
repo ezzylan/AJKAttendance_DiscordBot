@@ -1,6 +1,6 @@
 # bot.py
 import os
-import datetime
+import datetime as dt
 import discord
 from discord.utils import get
 from dotenv import load_dotenv
@@ -46,8 +46,8 @@ async def on_ready():
     for guild in client.guilds:
         if guild.name == GUILD:
             channel = get(guild.text_channels, name='acah-study📚')
-            now = datetime.now()
-            day = datetime(now.year, now.month, now.day).isoweekday()
+            now = dt.datetime.now()
+            day = dt.datetime(now.year, now.month, now.day).isoweekday()
             hour = now.hour
             link = att_link(day, hour)
             message = await channel.send(link)
