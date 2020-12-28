@@ -38,6 +38,9 @@ def att_link(day, hour):
     # tutorial db
     elif day == 4 and hour == 15:
         link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=332912\nAttendance Tutorial Database (Dr Khalit)"
+    # tutorial project management
+    elif day == 5 and hour == 10:
+        link = "Ketua group tutorial korang akan ambik attendance masing2. Jangan lupa hadir kelas ya!"
     return link
 
 
