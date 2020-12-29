@@ -53,7 +53,10 @@ async def on_ready():
             day = dt.datetime(now.year, now.month, now.day).isoweekday()
             hour = now.hour
             link = att_link(day, hour)
-            message = await channel.send(link)
+            try:
+                message = await channel.send(link)
+            except:
+                pass
     await client.close()
 
 client.run(TOKEN)
