@@ -28,7 +28,7 @@ def att_link(day, hour):
         link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=332871\nAttendance Lecture Database (Dr Khalit)"
     # lecture project management
     elif day == 3 and hour == 9:
-        link = "Ketua group tutorial korang akan ambik attendance masing2. Jangan lupa hadir kelas ya!"
+        link = "Attendance Lecture Project Management\nKetua group tutorial korang akan ambik attendance masing2. Jangan lupa hadir kelas ya!"
     # tutorial probstats
     elif day == 3 and hour == 14:
         link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=337476\nAttendance Tutorial ProbStats\nPassword minta kat Dehe"
@@ -40,7 +40,7 @@ def att_link(day, hour):
         link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=332912\nAttendance Tutorial Database (Dr Khalit)"
     # tutorial project management
     elif day == 5 and hour == 10:
-        link = "Ketua group tutorial korang akan ambik attendance masing2. Jangan lupa hadir kelas ya!"
+        link = "Attendance Tutorial Project Management\nKetua group tutorial korang akan ambik attendance masing2. Jangan lupa hadir kelas ya!"
     return link
 
 
