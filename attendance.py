@@ -31,7 +31,7 @@ def att_link(day, hour):
         link = "Attendance Lecture Project Management\nKetua group tutorial korang akan ambik attendance masing2. Jangan lupa hadir kelas ya!"
     # tutorial probstats
     elif day == 3 and hour == 14:
-        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=337476\nAttendance Tutorial ProbStats\nPassword minta kat Dehe"
+        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=337476\nAttendance Tutorial ProbStats\nPassword minta kat Dehe\n@everyone"
     # tutorial softmod
     elif day == 4 and hour == 9:
         link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=143231\nAttendance Tutorial SoftMod"
@@ -50,13 +50,16 @@ async def on_ready():
         if guild.name == GUILD:
             channel = get(guild.text_channels, name='acah-study📚')
             now = dt.datetime.now()
-            day = dt.datetime(now.year, now.month, now.day).isoweekday()
-            hour = now.hour
-            link = att_link(day, hour)
-            try:
-                message = await channel.send(link)
-            except:
-                pass
+            end = dt.datetime(year=2021, month=1, day=24)
+            days_left = (end - now).days
+            if days_left > 0:
+                day = dt.datetime(now.year, now.month, now.day).isoweekday()
+                hour = now.hour
+                link = att_link(day, hour)
+                try:
+                    message = await channel.send(link)
+                except:
+                    pass
     await client.close()
 
 client.run(TOKEN)
