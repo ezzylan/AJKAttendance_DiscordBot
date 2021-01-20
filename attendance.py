@@ -12,7 +12,7 @@ GUILD = os.getenv('DISCORD_GUILD')
 client = discord.Client()
 
 
-def att_link(day, hour):
+def att_link(day, hour, days_left):
     link = ""
     # lecture probstats
     if day == 1 and hour == 9:
@@ -41,6 +41,9 @@ def att_link(day, hour):
     # tutorial project management
     elif day == 5 and hour == 10:
         link = "Attendance Tutorial Project Management\nKetua group tutorial korang akan ambik attendance masing2. Jangan lupa hadir kelas ya!\n@everyone"
+    # see you next sem
+    elif hour == 0 and days_left == 0:
+        link = "Tamatlah khidmat saya untuk sem ni. See you next sem! 😉"
     return link
 
 
@@ -50,12 +53,12 @@ async def on_ready():
         if guild.name == GUILD:
             channel = get(guild.text_channels, name='acah-study📚')
             now = dt.datetime.now()
-            end = dt.datetime(year=2021, month=1, day=24)
+            end = dt.datetime(year=2021, month=1, day=23)
             days_left = (end - now).days
             if days_left > 0:
                 day = dt.datetime(now.year, now.month, now.day).isoweekday()
                 hour = now.hour
-                link = att_link(day, hour)
+                link = att_link(day, hour, days_left)
                 try:
                     await channel.send(link)
                 except:
