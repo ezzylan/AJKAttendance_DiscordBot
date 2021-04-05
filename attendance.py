@@ -14,33 +14,36 @@ client = discord.Client()
 
 def att_link(day, hour, days_left):
     link = ""
-    # lecture probstats
-    if day == 1 and hour == 9:
-        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=335878\nAttendance Lecture ProbStats\nPassword minta kat Dehe\n@everyone"
-    # lecture tcs
-    elif day == 1 and hour == 15:
-        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=152862\nAttendance Lecture TCS\n@everyone"
-    # lecture softmod
+    # lecture operating systems
+    if day == 1 and hour == 11:
+        link = "\nAttendance Lecture OS\n@ezzylan_#4868"
+    # lecture sre
+    elif day == 1 and hour == 16:
+        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=427972\nAttendance Lecture SRE\n@ezzylan_#4868"
+    # lecture hci
     elif day == 2 and hour == 9:
-        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=143231\nAttendance Lecture SoftMod\n@everyone"
-    # lecture db
-    elif day == 2 and hour == 13:
-        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=332871\nAttendance Lecture Database (Dr Khalit)"
-    # lecture project management
-    elif day == 3 and hour == 9:
-        link = "Attendance Lecture Project Management\nKetua group tutorial korang akan ambik attendance masing2. Jangan lupa hadir kelas ya!\n@everyone"
-    # tutorial probstats
+        link = "Attendance Lecture HCI\nDr akan ambik attendance dari Teams. Jangan lupa hadir kelas!\n@ezzylan_#4868"
+    # tutorial sre
+    elif day == 2 and hour == 12:
+        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=427972\nAttendance Tutorial SRE\n@ezzylan_#4868"
+    # lecture algo
+    elif day == 2 and hour == 15:
+        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=427681\nAttendance Lecture Algo\nPassword Dr bagi kat chat Teams\n@ezzylan_#4868"
+    # lecture web programming
+    elif day == 3 and hour == 11:
+        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=158033\nAttendance Lecture Web Programming\nPassword Dr bagi kat chat Teams\n@ezzylan_#4868"
+    # tutorial operating systems
     elif day == 3 and hour == 14:
-        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=337476\nAttendance Tutorial ProbStats\nPassword minta kat Dehe\n@everyone"
-    # tutorial softmod
+        link = "\nAttendance Tutorial OS\n@ezzylan_#4868"
+    # tutorial algo
     elif day == 4 and hour == 9:
-        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=143231\nAttendance Tutorial SoftMod\n@everyone"
-    # tutorial db
-    elif day == 4 and hour == 15:
-        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=332912\nAttendance Tutorial Database (Dr Khalit)"
-    # tutorial project management
-    elif day == 5 and hour == 10:
-        link = "Attendance Tutorial Project Management\nKetua group tutorial korang akan ambik attendance masing2. Jangan lupa hadir kelas ya!\n@everyone"
+        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=427681\nAttendance Tutorial Algo\nPassword Dr bagi kat chat Teams\n@ezzylan_#4868"
+    # tutorial hci
+    elif day == 4 and hour == 16:
+        link = "Attendance Tutorial HCI\nDr akan ambik attendance dari Teams. Jangan lupa hadir kelas!\n@ezzylan_#4868"
+    # tutorial web programming
+    elif day == 5 and hour == 15:
+        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=158033\nAttendance Tutorial Web Programming\nPassword Dr bagi kat chat Teams\n@ezzylan_#4868"
     # see you next sem
     elif hour == 0 and days_left == 0:
         link = "Tamatlah khidmat saya untuk sem ni. See you next sem! 😉"
@@ -51,9 +54,9 @@ def att_link(day, hour, days_left):
 async def on_ready():
     for guild in client.guilds:
         if guild.name == GUILD:
-            channel = get(guild.text_channels, name='acah-study📚')
+            channel = get(guild.text_channels, name='bot-testing')
             now = dt.datetime.now()
-            end = dt.datetime(year=2021, month=1, day=23)
+            end = dt.datetime(year=2021, month=6, day=19)
             days_left = (end - now).days
             if days_left > 0:
                 day = dt.datetime(now.year, now.month, now.day).isoweekday()
