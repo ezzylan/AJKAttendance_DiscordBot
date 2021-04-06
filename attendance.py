@@ -54,7 +54,7 @@ def att_link(day, hour, days_left):
 async def on_ready():
     for guild in client.guilds:
         if guild.name == GUILD:
-            channel = get(guild.text_channels, name='bot-testing')
+            channel = get(guild.text_channels, name='attendance-📝')
             now = dt.datetime.now()
             end = dt.datetime(year=2021, month=6, day=19)
             days_left = (end - now).days
