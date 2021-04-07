@@ -16,7 +16,7 @@ def att_link(day, hour, days_left):
     link = ""
     # lecture operating systems
     if day == 1 and hour == 11:
-        link = "\nAttendance Lecture OS\n<@625611854777024513>"
+        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=427762\nAttendance Lecture OS\n<@625611854777024513>"
     # lecture sre
     elif day == 1 and hour == 16:
         link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=427972\nAttendance Lecture SRE\n<@625611854777024513>"
@@ -34,7 +34,7 @@ def att_link(day, hour, days_left):
         link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=158033\nAttendance Lecture Web Programming\nPassword Dr bagi kat chat Teams\n<@625611854777024513>"
     # tutorial operating systems
     elif day == 3 and hour == 14:
-        link = "\nAttendance Tutorial OS\n<@625611854777024513>"
+        link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=427762\nAttendance Tutorial OS\n<@625611854777024513>"
     # tutorial algo
     elif day == 4 and hour == 9:
         link = "https://spectrum.um.edu.my/mod/attendance/view.php?id=427681\nAttendance Tutorial Algo\nPassword Dr bagi kat chat Teams\n<@625611854777024513>"
